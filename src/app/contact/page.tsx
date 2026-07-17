@@ -1,48 +1,85 @@
 // src/app/contact/page.tsx
+"use client";
+
+import React from 'react';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+
 export default function ContactPage() {
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">Contact Us</h1>
-            <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
-                <form className="space-y-6">
-                    <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
-                            required
-                        />
+        <main className="min-h-screen bg-gray-50 pt-32 pb-16">
+            <div className="max-w-7xl mx-auto px-4">
+                <div className="text-center mb-16">
+                    <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Get in Touch</h1>
+                    <p className="text-lg text-gray-600">We're here to help you plan your perfect getaway.</p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    {/* Contact Information */}
+                    <div className="bg-gray-900 p-10 md:p-16 text-white flex flex-col justify-between">
+                        <div>
+                            <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
+                            <div className="space-y-8">
+                                <div className="flex items-start gap-4">
+                                    <MapPin className="w-6 h-6 text-blue-500 shrink-0 mt-1" />
+                                    <div>
+                                        <h3 className="font-semibold text-lg mb-1">Our Office</h3>
+                                        <p className="text-gray-400">Rightful Tour and Travel Pvt. Ltd.<br />71 Canning Street, 5th Floor, Room No. B534<br />Kolkata, West Bengal</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-4">
+                                    <Phone className="w-6 h-6 text-blue-500 shrink-0 mt-1" />
+                                    <div>
+                                        <h3 className="font-semibold text-lg mb-1">Phone</h3>
+                                        <p className="text-gray-400">70037 21581</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-4">
+                                    <Mail className="w-6 h-6 text-blue-500 shrink-0 mt-1" />
+                                    <div>
+                                        <h3 className="font-semibold text-lg mb-1">Email</h3>
+                                        <p className="text-gray-400">support@rightfultourandtravels.com</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-4">
+                                    <Clock className="w-6 h-6 text-blue-500 shrink-0 mt-1" />
+                                    <div>
+                                        <h3 className="font-semibold text-lg mb-1">Business Hours</h3>
+                                        <p className="text-gray-400">Monday - Saturday<br />10:00 AM - 7:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
-                            required
-                        />
+
+                    {/* Contact Form */}
+                    <div className="p-10 md:p-16">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
+                        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                    <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="John" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="Doe" />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="john@example.com" />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="How can we help you?"></textarea>
+                            </div>
+                            <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-blue-500/30">
+                                Send Message
+                            </button>
+                        </form>
                     </div>
-                    <div>
-                        <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows={4}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
-                            required
-                        ></textarea>
-                    </div>
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
-                    >
-                        Send Message
-                    </button>
-                </form>
+                </div>
             </div>
-        </div>
+        </main>
     );
 }
