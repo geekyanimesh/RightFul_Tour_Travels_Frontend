@@ -1,51 +1,38 @@
 // src/app/page.tsx
-import Link from "next/link";
-import { fetchPackages } from "@/lib/api";
-import Image from "next/image";
+import HeroSection from '../components/HeroSection';
+import DestinationsGrid from '../components/DestinationsGrid';
+import PackageCard from '../components/PackageCard';
+import Testimonials from '../components/Testimonials';
+import FAQ from '../components/FAQ';
 
-export default async function Home() {
-  const packages = await fetchPackages();
-  const featuredPackages = packages.slice(0, 3);
+const mockPackages = [
+  { id: 1, title: "Romantic Paris Getaway", location: "Paris, France", duration_days: 7, price: 85000, is_best_seller: true, image_url: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2020&auto=format&fit=crop" },
+  { id: 2, title: "Swiss Alps Adventure", location: "Zurich, Switzerland", duration_days: 5, price: 120000, is_best_seller: false, image_url: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=2070&auto=format&fit=crop" },
+  { id: 3, title: "Bali Beach Retreat", location: "Bali, Indonesia", duration_days: 6, price: 45000, is_best_seller: true, image_url: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1938&auto=format&fit=crop" },
+];
 
+export default function Home() {
   return (
-    <div>
-      <section className="bg-blue-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-extrabold tracking-tight mb-4">Discover Your Next Adventure</h1>
-          <p className="text-xl mb-8">Experience the world with Rightful Tour & Travels.</p>
-          <Link href="/packages" className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors">
-            Explore Packages
-          </Link>
-        </div>
-      </section>
+    <main className="min-h-screen bg-white">
+      {/* Navbar removed from here */}
+      <HeroSection />
+      <DestinationsGrid />
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Featured Destinations</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {featuredPackages.map((pkg: any) => (
-            <div key={pkg.id} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
-              {pkg.image && (
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={pkg.image}
-                    alt={pkg.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-              )}
-              <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{pkg.title}</h3>
-                <p className="text-gray-600 mb-4 line-clamp-3">{pkg.description}</p>
-                <Link href="/packages" className="text-blue-600 font-medium hover:underline mt-auto">
-                  View Details &rarr;
-                </Link>
-              </div>
-            </div>
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="flex justify-between items-end mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Trending Packages</h2>
+          <button className="hidden md:block text-blue-600 font-semibold hover:text-blue-700 transition-colors">View All &rarr;</button>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {mockPackages.map((pkg) => (
+            <PackageCard key={pkg.id} pkg={pkg} />
           ))}
         </div>
-      </section>
-    </div>
+      </div>
+
+      <Testimonials />
+      <FAQ />
+      {/* Footer removed from here */}
+    </main>
   );
 }
