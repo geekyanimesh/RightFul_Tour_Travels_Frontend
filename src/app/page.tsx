@@ -4,6 +4,7 @@ import DestinationsGrid from '../components/DestinationsGrid';
 import PackageCard from '../components/PackageCard';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
+import Link from 'next/link';
 
 const mockPackages = [
   { id: 1, title: "Romantic Paris Getaway", location: "Paris, France", duration_days: 7, price: 85000, is_best_seller: true, image_url: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2020&auto=format&fit=crop" },
@@ -14,16 +15,18 @@ const mockPackages = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Navbar removed from here */}
       <HeroSection />
+
       <DestinationsGrid />
 
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="flex justify-between items-end mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Trending Packages</h2>
-          <button className="hidden md:block text-blue-600 font-semibold hover:text-blue-700 transition-colors">View All &rarr;</button>
+      <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 md:mb-8 gap-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900">Trending Packages</h2>
+          <Link href="/packages" className="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+            View All &rarr;
+          </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {mockPackages.map((pkg) => (
             <PackageCard key={pkg.id} pkg={pkg} />
           ))}
@@ -32,7 +35,6 @@ export default function Home() {
 
       <Testimonials />
       <FAQ />
-      {/* Footer removed from here */}
     </main>
   );
 }
