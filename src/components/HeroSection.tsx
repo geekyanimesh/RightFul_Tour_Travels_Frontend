@@ -1,4 +1,4 @@
-// components/Hero.tsx
+// src/components/Hero.tsx
 "use client";
 
 import React from 'react';
@@ -10,8 +10,8 @@ export default function Hero() {
             {/* Hero Background */}
             <div className="relative h-[650px] md:h-[750px] w-full">
                 <img
-                    src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2020&auto=format&fit=crop"
-                    alt="World Travel"
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop"
+                    alt="Tropical Beach Paradise"
                     className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-transparent"></div>
@@ -27,13 +27,6 @@ export default function Hero() {
                     <p className="text-xl md:text-2xl text-white font-medium drop-shadow-md">
                         Your Journey Begins Here
                     </p>
-                </div>
-
-                {/* Curved Wave Bottom Divider */}
-                <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
-                    <svg className="relative block w-full h-[60px] md:h-[120px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" className="fill-[#fdfbf6]"></path>
-                    </svg>
                 </div>
             </div>
 
