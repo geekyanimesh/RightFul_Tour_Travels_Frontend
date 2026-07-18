@@ -1,7 +1,9 @@
 // src/app/page.tsx
 import HeroSection from '../components/HeroSection';
+import Services from '../components/Services';
 import DestinationsGrid from '../components/DestinationsGrid';
 import PackageCard from '../components/PackageCard';
+import WhyChooseUs from '../components/WhyChooseUs';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Link from 'next/link';
@@ -16,6 +18,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <HeroSection />
+
+      {/* Added the new Services Component */}
+      <Services />
 
       <DestinationsGrid />
 
@@ -32,6 +37,9 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* Added the new WhyChooseUs Component */}
+      <WhyChooseUs />
 
       <Testimonials />
       <FAQ />
