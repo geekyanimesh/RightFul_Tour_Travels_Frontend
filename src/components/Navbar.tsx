@@ -1,74 +1,65 @@
+// components/Navbar.tsx
 "use client";
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Menu, X, Sun } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathname = usePathname();
 
-    const isHomePage = pathname === '/';
-
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
+        const handleScroll = () => setIsScrolled(window.scrollY > 20);
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navBackground = (isScrolled || !isHomePage) ? 'bg-white shadow-md py-3' : 'bg-transparent py-5';
-    const textColor = (isScrolled || !isHomePage) ? 'text-gray-900' : 'text-white';
-    const linkColor = (isScrolled || !isHomePage) ? 'text-gray-600' : 'text-white/90';
-
-    // Create a dynamic wrapper for the logo that only shows on the transparent hero section
-    const logoWrapper = (isScrolled || !isHomePage)
-        ? ''
-        : 'bg-black/40 px-4 py-2 rounded-xl backdrop-blur-sm shadow-lg';
+    const isHomePage = pathname === '/';
+    const navClass = isScrolled || !isHomePage ? 'bg-[#154374] shadow-lg py-4' : 'bg-transparent py-6';
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${navBackground}`}>
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${navClass}`}>
             <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
 
-                {/* Logo with Dynamic Wrapper */}
-                <Link href="/" className={`text-xl md:text-2xl font-black tracking-tighter ${textColor} ${logoWrapper} transition-all duration-300`}>
-                    RIGHTFUL <span className="text-blue-500">TOUR AND TRAVELS</span>
+                <Link href="/" className="flex items-center gap-2 group">
+                    <Sun className="w-8 h-8 text-yellow-400 fill-yellow-400 group-hover:rotate-45 transition-transform duration-500" />
+                    <div className="flex flex-col">
+                        <span className="text-2xl font-black text-white leading-none tracking-wide">
+                            RIGHTFUL
+                        </span>
+                        <span className="text-xs text-white/90 font-medium">
+                            Tour & Travels Pvt. Ltd.
+                        </span>
+                    </div>
                 </Link>
 
-                {/* Desktop Menu */}
-                <div className={`hidden md:flex items-center gap-8 font-medium ${linkColor}`}>
-                    <Link href="/" className="hover:text-blue-500 transition-colors">Home</Link>
-                    <Link href="/packages" className="hover:text-blue-500 transition-colors">Destinations</Link>
-                    <Link href="/about" className="hover:text-blue-500 transition-colors">About Us</Link>
-                    <Link href="/contact" className="hover:text-blue-500 transition-colors">Contact</Link>
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold transition-colors duration-300 shadow-lg shadow-blue-500/30">
-                        Book Now
-                    </button>
+                <div className="hidden md:flex items-center gap-6 lg:gap-8 font-medium text-white/95 text-sm lg:text-base">
+                    <Link href="/" className="hover:text-yellow-400 transition-colors border-b-2 border-transparent hover:border-yellow-400 pb-1">Home</Link>
+                    <Link href="/about" className="hover:text-yellow-400 transition-colors border-b-2 border-transparent hover:border-yellow-400 pb-1">About Us</Link>
+                    <Link href="/gallery" className="hover:text-yellow-400 transition-colors border-b-2 border-transparent hover:border-yellow-400 pb-1">Gallery</Link>
+                    <Link href="/packages" className="hover:text-yellow-400 transition-colors border-b-2 border-transparent hover:border-yellow-400 pb-1">Tours & Packages</Link>
+                    <Link href="/contact" className="hover:text-yellow-400 transition-colors border-b-2 border-transparent hover:border-yellow-400 pb-1">Contact Us</Link>
+                    <Link href="/quote" className="bg-[#f27405] hover:bg-[#d96604] text-white px-6 py-2.5 rounded-md font-bold transition-colors shadow-lg">
+                        Get a Quote
+                    </Link>
                 </div>
 
-                {/* Mobile Menu Toggle */}
-                <button
-                    className="md:hidden"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? (
-                        <X className={`w-7 h-7 ${textColor}`} />
-                    ) : (
-                        <Menu className={`w-7 h-7 ${textColor}`} />
-                    )}
+                <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                    {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                 </button>
             </div>
 
-            {/* Mobile Menu Dropdown */}
             {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl py-4 flex flex-col items-center gap-4 text-gray-800 font-medium border-t border-gray-100">
+                <div className="md:hidden absolute top-full left-0 w-full bg-[#154374] shadow-xl py-4 flex flex-col items-center gap-4 text-white font-medium border-t border-white/10">
                     <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-                    <Link href="/packages" onClick={() => setIsMobileMenuOpen(false)}>Destinations</Link>
                     <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
-                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+                    <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)}>Gallery</Link>
+                    <Link href="/packages" onClick={() => setIsMobileMenuOpen(false)}>Tours & Packages</Link>
+                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
+                    <Link href="/quote" className="bg-[#f27405] px-6 py-2 rounded-md font-bold" onClick={() => setIsMobileMenuOpen(false)}>Get a Quote</Link>
                 </div>
             )}
         </nav>

@@ -1,39 +1,40 @@
-// src/components/DestinationsGrid.tsx
+// components/Destinations.tsx
 import React from 'react';
+import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
 
-export default function DestinationsGrid() {
+const destinations = [
+    { name: "Goa", image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1974&auto=format&fit=crop" },
+    { name: "Dubai", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop" },
+    { name: "Maldives", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1965&auto=format&fit=crop" },
+    { name: "Switzerland", image: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=2070&auto=format&fit=crop" }
+];
+
+export default function Destinations() {
     return (
-        <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6 md:mb-8">Explore Destinations</h2>
+        <div className="max-w-7xl mx-auto px-4 py-8">
+            <div className="flex justify-between items-end border-b-2 border-gray-200 pb-2 mb-8">
+                <h2 className="text-3xl font-bold text-[#154374]">Popular Destinations</h2>
+                <Link href="/destinations" className="text-[#f27405] font-semibold flex items-center hover:text-[#d96604]">
+                    View All <ChevronRight className="w-4 h-4 ml-1" />
+                </Link>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* Large Feature Block */}
-                <div className="md:col-span-2 relative h-[250px] md:h-[400px] rounded-2xl overflow-hidden group cursor-pointer">
-                    <img
-                        src="https://images.unsplash.com/photo-1491557345352-5929e343eb89?q=80&w=2070&auto=format&fit=crop"
-                        alt="Europe"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 text-white">
-                        <h3 className="text-2xl md:text-3xl font-bold mb-1 md:mb-2">Explore Europe</h3>
-                        <p className="text-white/80 text-sm md:text-base font-medium">15+ Packages Available</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {destinations.map((dest, i) => (
+                    <div key={i} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100 group">
+                        <div className="h-48 overflow-hidden">
+                            <img
+                                src={dest.image}
+                                alt={dest.name}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
+                        </div>
+                        <div className="py-4 text-center">
+                            <h3 className="text-xl font-bold text-[#154374]">{dest.name}</h3>
+                        </div>
                     </div>
-                </div>
-
-                {/* Smaller Block */}
-                <div className="relative h-[250px] md:h-[400px] rounded-2xl overflow-hidden group cursor-pointer">
-                    <img
-                        src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1994&auto=format&fit=crop"
-                        alt="Asia"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 text-white">
-                        <h3 className="text-xl md:text-2xl font-bold mb-1 md:mb-2">Discover Asia</h3>
-                        <p className="text-white/80 text-sm md:text-base font-medium">8 Packages Available</p>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );
