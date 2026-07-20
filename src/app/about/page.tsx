@@ -1,6 +1,34 @@
 // src/app/about/page.tsx
 import React from 'react';
-import { Map, Heart, Users, CalendarHeart } from 'lucide-react';
+import { Map, Heart, Users, CalendarHeart, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+
+const TEAM_MEMBERS = [
+    {
+        id: 'ashish-bhalotia',
+        name: 'Ashish Kumar Bhalotia',
+        role: 'Executive Director',
+        image: 'https://ui-avatars.com/api/?name=Ashish+Kumar+Bhalotia&background=154374&color=fff&size=512&font-size=0.33'
+    },
+    {
+        id: 'rahul-kejriwal',
+        name: 'Rahul Kumar Kejriwal',
+        role: 'Non-Executive Director',
+        image: '/rahul_kejriwal.jpeg'
+    },
+    {
+        id: 'aditya-tibrewal',
+        name: 'Aditya Tibrewal',
+        role: 'Executive Director',
+        image: '/aditya_tibrewal.jpeg'
+    },
+    {
+        id: 'maruti-nandan-tibrewal',
+        name: 'Maruti Nandan Tibrewal',
+        role: 'Consultant and Business Advisor',
+        image: 'https://ui-avatars.com/api/?name=Maruti+Nandan+Tibrewal&background=f27405&color=fff&size=512&font-size=0.33'
+    }
+];
 
 export default function AboutPage() {
     return (
@@ -50,11 +78,45 @@ export default function AboutPage() {
                     </div>
                 </div>
 
+                {/* Team Carousel Section */}
+                <div className="mt-20 mb-20">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-[#154374] mb-4">Meet Our Team</h2>
+                        <p className="text-gray-600">The passionate people behind Rightful Tour and Travels.</p>
+                    </div>
+                    {/* CSS-based horizontal scroll carousel */}
+                    <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar">
+                        {TEAM_MEMBERS.map((member) => (
+                            <Link
+                                href={`/team/${member.id}`}
+                                key={member.id}
+                                className="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all snap-center group"
+                            >
+                                <div className="h-72 overflow-hidden relative">
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                                        <span className="text-white flex items-center gap-2 font-medium">
+                                            View Profile <ArrowRight className="w-4 h-4" />
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="p-6 text-center">
+                                    <h3 className="text-xl font-bold text-gray-900">{member.name}</h3>
+                                    <p className="text-[#f27405] font-medium mt-1">{member.role}</p>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+
                 {/* Our Expertise Section */}
                 <div className="mt-20">
                     <h2 className="text-3xl font-bold text-center text-[#154374] mb-12">Our Areas of Expertise</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
                         {/* Travel Solutions */}
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow text-center">
                             <div className="mx-auto w-16 h-16 bg-blue-50 text-[#154374] rounded-full flex items-center justify-center mb-6">
@@ -98,7 +160,6 @@ export default function AboutPage() {
                                 Expert planning for niche gatherings, including traditional Kirtan weddings and intimately curated small events and celebrations.
                             </p>
                         </div>
-
                     </div>
                 </div>
             </div>
