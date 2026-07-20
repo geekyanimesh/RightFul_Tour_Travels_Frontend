@@ -1,3 +1,4 @@
+// src/app/quote/page.tsx
 "use client";
 
 import React, { useState } from 'react';
@@ -27,8 +28,11 @@ export default function QuotePage() {
         e.preventDefault();
         setStatus('loading');
 
+        // Use the environment variable, defaulting to localhost for local development
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/quote/", {
+            const response = await fetch(`${API_URL}/api/quote/`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
@@ -45,6 +49,7 @@ export default function QuotePage() {
                 setStatus('error');
             }
         } catch (error) {
+            console.error("Quote submission error:", error);
             setStatus('error');
         }
     };

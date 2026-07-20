@@ -21,8 +21,11 @@ export default function ContactPage() {
         e.preventDefault();
         setStatus('loading');
 
+        // Use the environment variable, falling back to localhost for local dev safety
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/contact/", {
+            const response = await fetch(`${API_URL}/api/contact/`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
@@ -35,6 +38,7 @@ export default function ContactPage() {
                 setStatus('error');
             }
         } catch (error) {
+            console.error("Contact submission error:", error);
             setStatus('error');
         }
     };
