@@ -2,7 +2,8 @@
 "use client";
 
 import React from 'react';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
     return (
@@ -24,34 +25,18 @@ export default function Hero() {
                     <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg mb-6">
                         with <span className="text-white">Rightful Tours</span>
                     </h2>
-                    <p className="text-xl md:text-2xl text-white font-medium drop-shadow-md">
+                    <p className="text-xl md:text-2xl text-white font-medium drop-shadow-md mb-12">
                         Your Journey Begins Here
                     </p>
-                </div>
-            </div>
 
-            {/* Search Bar */}
-            <div className="relative z-20 max-w-5xl mx-auto px-4 -mt-16 md:-mt-24">
-                <div className="bg-white rounded-lg shadow-xl flex flex-col md:flex-row overflow-hidden border border-gray-100">
-                    <div className="flex-1 flex items-center justify-between px-4 py-4 md:py-5 border-b md:border-b-0 md:border-r border-gray-200 text-gray-500 cursor-pointer hover:bg-gray-50">
-                        <span className="text-sm font-medium">Destination</span>
-                        <ChevronDown className="w-4 h-4" />
-                    </div>
-                    <div className="flex-1 flex items-center justify-between px-4 py-4 md:py-5 border-b md:border-b-0 md:border-r border-gray-200 text-gray-500 cursor-pointer hover:bg-gray-50">
-                        <span className="text-sm font-medium">Tour Type</span>
-                        <ChevronDown className="w-4 h-4" />
-                    </div>
-                    <div className="flex-1 flex items-center justify-between px-4 py-4 md:py-5 border-b md:border-b-0 md:border-r border-gray-200 text-gray-500 cursor-pointer hover:bg-gray-50">
-                        <span className="text-sm font-medium">Travel Date</span>
-                        <ChevronDown className="w-4 h-4" />
-                    </div>
-                    <div className="flex-1 flex items-center justify-between px-4 py-4 md:py-5 border-b md:border-b-0 md:border-r border-gray-200 text-gray-500 cursor-pointer hover:bg-gray-50">
-                        <span className="text-sm font-medium">Tour Date</span>
-                        <ChevronDown className="w-4 h-4" />
-                    </div>
-                    <button className="bg-[#f27405] hover:bg-[#d96604] text-white px-8 py-4 md:py-0 font-bold flex items-center justify-center gap-2 transition-colors flex-shrink-0 text-lg md:text-base">
-                        Search <ArrowRight className="w-5 h-5" />
-                    </button>
+                    {/* Call to Action Button */}
+                    <Link
+                        href="/quote"
+                        className="group flex items-center gap-3 bg-[#f27405] hover:bg-[#d96604] text-white px-10 py-5 rounded-full text-lg md:text-xl font-bold transition-all hover:scale-105 shadow-xl hover:shadow-[0_0_30px_-5px_rgba(242,116,5,0.6)]"
+                    >
+                        Get Your Custom Quote
+                        <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                 </div>
             </div>
         </div>

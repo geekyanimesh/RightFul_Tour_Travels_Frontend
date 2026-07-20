@@ -10,8 +10,6 @@ const galleryImages = [
     // 2. Kirtan / Pooja Event (Floral/Puja vibes)
     "https://loremflickr.com/800/600/puja,flowers?lock=2",
 
-    // 3. Maldives (Relaxing Holiday Package)
-    "https://loremflickr.com/800/600/maldives,ocean?lock=3",
 
     // 4. Pilgrimage Tour (Indian Temple)
     "https://loremflickr.com/800/600/temple,india?lock=4",
@@ -29,7 +27,10 @@ const galleryImages = [
     "https://loremflickr.com/800/600/business,conference?lock=8",
 
     // 9. Paris (Romantic / European Tours)
-    "https://loremflickr.com/800/600/paris,eiffel?lock=9"
+    "https://loremflickr.com/800/600/paris,eiffel?lock=9",
+
+    // 3. Maldives (Relaxing Holiday Package)
+   // "https://loremflickr.com/800/600/maldives,ocean?lock=3",
 ];
 
 // Sample testimonials based on the services provided

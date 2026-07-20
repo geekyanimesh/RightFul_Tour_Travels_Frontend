@@ -56,7 +56,7 @@ export default function ContactPage() {
                                     <MapPin className="w-6 h-6 text-blue-500 shrink-0 mt-1" />
                                     <div>
                                         <h3 className="font-semibold text-lg mb-1">Our Office</h3>
-                                        <p className="text-gray-400">Rightful Tour and Travel Pvt. Ltd.<br />71 Canning Street, 5th Floor, Room No. B534<br />Kolkata, West Bengal</p>
+                                        <p className="text-gray-400">Rightful Tour and Travel Pvt. Ltd.<br />71 Canning Street, 5th Floor, Room No. B-532<br />Kolkata, West Bengal</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">

@@ -56,7 +56,7 @@ export default function Footer() {
                     <ul className="space-y-4 text-sm text-white/80">
                         <li className="flex items-start gap-3">
                             <FontAwesomeIcon icon={faMapMarkerAlt} className="w-4 h-4 mt-1 text-[#f27405] shrink-0" />
-                            <span>Rightful Tour and Travel Pvt. Ltd.<br />71 Canning Street, 5th Floor, Room No. B534<br />Kolkata, West Bengal</span>
+                            <span>Rightful Tour and Travel Pvt. Ltd.<br />71 Canning Street, 5th Floor, Room No. B-532<br />Kolkata, West Bengal</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <FontAwesomeIcon icon={faPhone} className="w-4 h-4 text-[#f27405] shrink-0" />
