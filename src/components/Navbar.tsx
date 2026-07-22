@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Sun } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import PreferencesSelector from './PreferencesSelector';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -45,11 +46,15 @@ export default function Navbar() {
                     <Link href="/quote" className="bg-[#f27405] hover:bg-[#d96604] text-white px-6 py-2.5 rounded-md font-bold transition-colors shadow-lg">
                         Get a Quote
                     </Link>
+                    <PreferencesSelector />
                 </div>
 
-                <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-                    {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
-                </button>
+                <div className="md:hidden flex items-center gap-3">
+                    <PreferencesSelector />
+                    <button className="text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+                    </button>
+                </div>
             </div>
 
             {isMobileMenuOpen && (
