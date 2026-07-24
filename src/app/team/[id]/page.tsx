@@ -32,7 +32,7 @@ const TEAM_DATA: Record<string, any> = {
     'maruti-nandan-tibrewal': {
         name: 'Maruti Nandan Tibrewal',
         role: 'Consultant & Business Advisor',
-        image: 'https://ui-avatars.com/api/?name=Maruti+Nandan+Tibrewal&background=f27405&color=fff&size=800&font-size=0.33',
+        image: '/Maruti_Tiberwal.jpeg',
         bio: 'Born in 1984 and based in Kolkata, Maruti Nandan Tibrewal serves as a trusted Consultant and Business Advisor at Rightful Tour and Travels Pvt. Ltd. He brings with him extensive expertise in corporate strategy, business development, and organizational growth. With a strong background in advisory roles, Maruti provides valuable guidance on operational efficiency, financial planning, and sustainable expansion. His insights help the company align its travel and event management services with evolving market demands while maintaining a focus on customer satisfaction and transparency. As a consultant, Maruti plays a key role in strengthening governance, identifying new opportunities, and supporting the leadership team in strategic decision-making. His contribution ensures that Rightful Tour and Travels continues to expand responsibly and deliver excellence across its diverse offerings.',
         email: 'maruti@rightfultourandtravels.com',
         linkedin: '#'
