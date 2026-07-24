@@ -26,7 +26,7 @@ const TEAM_MEMBERS = [
         id: 'maruti-nandan-tibrewal',
         name: 'Maruti Nandan Tibrewal',
         role: 'Consultant and Business Advisor',
-        image: 'https://ui-avatars.com/api/?name=Maruti+Nandan+Tibrewal&background=f27405&color=fff&size=512&font-size=0.33'
+        image: '/Maruti_Tiberwal.jpeg',
     }
 ];
 

@@ -26,20 +26,25 @@ export default function Navbar() {
         <nav className={`fixed w-full z-50 transition-all duration-300 ${navClass}`}>
             <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
 
-                {/* Updated Logo Section - Increased Size */}
-                <Link href="/" className="flex items-center group">
+                {/* Old Layout with Increased Logo Image Size */}
+                <Link href="/" className="flex items-center gap-3 group">
                     <Image
-                        src="/logo.png"
-                        alt="Rightful Tour and Travel Logo"
-                        width={260}
-                        height={90}
-                        priority
-                        // Increased from h-12 to h-16 (mobile) and md:h-16 to md:h-24 (desktop)
-                        className="h-16 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                        src="/logo_1.png"
+                        alt="Compass Icon"
+                        width={80}
+                        height={80}
+                        className="w-16 h-16 md:w-20 md:h-20 object-contain transition-transform duration-500 group-hover:scale-110"
                     />
+                    <div className="flex flex-col">
+                        <span className="text-2xl font-black text-white leading-none tracking-wide">
+                            RIGHTFUL
+                        </span>
+                        <span className="text-xs text-white/90 font-medium mt-0.5">
+                            Tour & Travels Pvt. Ltd.
+                        </span>
+                    </div>
                 </Link>
 
-                {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-6 lg:gap-8 font-medium text-white/95 text-sm lg:text-base">
                     <Link href="/" className="hover:text-yellow-400 transition-colors border-b-2 border-transparent hover:border-yellow-400 pb-1">Home</Link>
                     <Link href="/about" className="hover:text-yellow-400 transition-colors border-b-2 border-transparent hover:border-yellow-400 pb-1">About Us</Link>
@@ -52,7 +57,6 @@ export default function Navbar() {
                     <PreferencesSelector />
                 </div>
 
-                {/* Mobile Navigation Controls */}
                 <div className="md:hidden flex items-center gap-3">
                     <PreferencesSelector />
                     <button className="text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -61,7 +65,6 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Menu Dropdown */}
             {isMobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 w-full bg-[#154374] shadow-xl py-4 flex flex-col items-center gap-4 text-white font-medium border-t border-white/10">
                     <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
