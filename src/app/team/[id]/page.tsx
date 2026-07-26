@@ -8,7 +8,7 @@ const TEAM_DATA: Record<string, any> = {
     'ashish-bhalotia': {
         name: 'Ashish Kumar Bhalotia',
         role: 'Executive Director',
-        image: 'https://ui-avatars.com/api/?name=Ashish+Kumar+Bhalotia&background=154374&color=fff&size=800&font-size=0.33',
+        image: '/ashish_bhalotia.png',
         bio: 'Born in 1989 and based in Kolkata, Ashish Kumar Bhalotia is a dynamic professional with a strong background in the service industry. His career is distinguished by dedication, innovation, and a commitment to delivering excellence across diverse sectors. Alongside his corporate journey, Ashish has been actively associated with several NGOs and private limited companies, contributing meaningfully to social initiatives and organizational development. His engagement in community service reflects his belief in responsible leadership and inclusive growth. As Executive Director of Rightful Tour and Travels Pvt. Ltd., Ashish provides strategic direction, strengthens governance, and drives the company’s vision forward.',
         email: 'ashish@rightfultourandtravels.com',
         linkedin: '#'
