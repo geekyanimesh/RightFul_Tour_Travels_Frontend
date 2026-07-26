@@ -8,7 +8,7 @@ const TEAM_MEMBERS = [
         id: 'ashish-bhalotia',
         name: 'Ashish Kumar Bhalotia',
         role: 'Executive Director',
-        image: 'https://ui-avatars.com/api/?name=Ashish+Kumar+Bhalotia&background=154374&color=fff&size=512&font-size=0.33'
+        image: '/ashish_bhalotia.png'
     },
     {
         id: 'rahul-kejriwal',
