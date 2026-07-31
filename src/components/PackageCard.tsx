@@ -1,5 +1,7 @@
+// src/components/PackageCard.tsx
 import React from 'react';
 import Link from 'next/link';
+import { MapPin, Clock, Hotel, Car, Utensils, Binoculars } from 'lucide-react';
 
 interface PackageProps {
   pkg: {
@@ -17,79 +19,77 @@ interface PackageProps {
 
 export default function PackageCard({ pkg }: PackageProps) {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col md:flex-row mb-6 relative">
+    <Link href={`/packages/${pkg.id}`} className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 h-full">
 
-      <div className="relative w-full md:w-2/5 h-64 md:h-auto overflow-hidden">
+      {/* Image Header */}
+      <div className="relative w-full h-60 overflow-hidden">
         <img
           src={pkg.image_url}
           alt={pkg.title}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
-        <div className="absolute top-4 left-0 flex flex-col gap-2">
+        {/* Floating Tags */}
+        <div className="absolute top-3 left-3 flex flex-col gap-2">
           {pkg.is_best_seller && (
-            <span className="bg-[#154374] text-white text-xs font-bold px-4 py-1.5 rounded-r-full shadow-md tracking-wider">
-              BEST SELLER
+            <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+              Best Seller
             </span>
           )}
-          {pkg.is_active_flash_sale && (
-            <span className="bg-red-600 text-white text-xs font-bold px-4 py-1.5 rounded-r-full shadow-md tracking-wider">
-              FLASH SALE
-            </span>
-          )}
+        </div>
+        {/* Duration Pill overlapping image */}
+        <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
+          <Clock className="w-3.5 h-3.5" /> {pkg.duration_days} Days
         </div>
       </div>
 
-      <div className="p-5 flex flex-col justify-between w-full md:w-3/5">
+      {/* Card Body */}
+      <div className="p-5 flex flex-col flex-grow justify-between">
         <div>
-          <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1 block">
-            {pkg.location} • {pkg.duration_days} Days
-          </span>
-          <h3 className="text-2xl font-bold text-[#154374] leading-tight mt-1">{pkg.title}</h3>
+          <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-2 flex items-center gap-1">
+            <MapPin className="w-3.5 h-3.5" /> {pkg.location}
+          </p>
+          <h3 className="text-xl font-black text-[#154374] leading-tight mb-5 group-hover:text-[#f27405] transition-colors line-clamp-2">
+            {pkg.title}
+          </h3>
 
-          <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-700">
-            <span className="bg-blue-50 text-[#154374] px-3 py-1.5 rounded-md border border-blue-100 flex items-center gap-1">
-              🏨 Hotels
-            </span>
-            <span className="bg-blue-50 text-[#154374] px-3 py-1.5 rounded-md border border-blue-100 flex items-center gap-1">
-              🚗 Transfers
-            </span>
-            <span className="bg-blue-50 text-[#154374] px-3 py-1.5 rounded-md border border-blue-100 flex items-center gap-1">
-              🍽️ Meals
-            </span>
-            <span className="bg-blue-50 text-[#154374] px-3 py-1.5 rounded-md border border-blue-100 flex items-center gap-1">
-              👁️ Sightseeing
-            </span>
+          {/* MMT Style Inclusions */}
+          <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-gray-600 mb-6">
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="bg-blue-50 p-2 rounded-full"><Hotel className="w-4 h-4 text-blue-600" /></div>
+              <span className="text-[10px] text-gray-500">Hotels</span>
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="bg-blue-50 p-2 rounded-full"><Car className="w-4 h-4 text-blue-600" /></div>
+              <span className="text-[10px] text-gray-500">Transfers</span>
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="bg-blue-50 p-2 rounded-full"><Utensils className="w-4 h-4 text-blue-600" /></div>
+              <span className="text-[10px] text-gray-500">Meals</span>
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="bg-blue-50 p-2 rounded-full"><Binoculars className="w-4 h-4 text-blue-600" /></div>
+              <span className="text-[10px] text-gray-500">Sightseeing</span>
+            </div>
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col sm:flex-row justify-between items-start sm:items-end border-t border-gray-100 pt-4">
-          <div className="mb-4 sm:mb-0">
-            <p className="text-xs text-gray-500 font-semibold mb-1 uppercase tracking-wide">Starting from:</p>
-            {pkg.is_active_flash_sale && pkg.discounted_price ? (
-              <div className="flex items-center gap-3">
-                <span className="text-lg text-gray-400 line-through decoration-red-500/50">
-                  ₹{pkg.price.toLocaleString('en-IN')}
-                </span>
-                <span className="text-3xl font-black text-[#f27405]">
-                  ₹{pkg.discounted_price.toLocaleString('en-IN')}
-                </span>
-              </div>
-            ) : (
-              <span className="text-3xl font-black text-[#f27405]">
+        {/* Price Footer */}
+        <div className="pt-4 border-t border-gray-100 flex items-end justify-between">
+          <div>
+            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-0.5">Starting From</p>
+            <div className="flex items-baseline gap-1">
+              <span className="text-2xl font-black text-gray-900">
                 ₹{pkg.price.toLocaleString('en-IN')}
               </span>
-            )}
-            <p className="text-xs text-gray-500 mt-1">per person</p>
+            </div>
+            <p className="text-[10px] text-gray-400">per person</p>
           </div>
-
-          <Link
-            href={`/packages/${pkg.id}`}
-            className="w-full sm:w-auto text-center bg-[#f27405] hover:bg-[#d96604] text-white font-bold py-3 px-8 rounded-md shadow-md transition-all duration-300"
-          >
+          <span className="bg-[#154374] text-white text-sm font-bold py-2.5 px-6 rounded-full group-hover:bg-[#0d2a4a] transition-colors shadow-md">
             View Details
-          </Link>
+          </span>
         </div>
       </div>
-    </div>
+
+    </Link>
   );
 }
