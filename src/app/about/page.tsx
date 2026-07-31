@@ -7,13 +7,13 @@ const TEAM_MEMBERS = [
     {
         id: 'ashish-bhalotia',
         name: 'Ashish Kumar Bhalotia',
-        role: 'Executive Director',
+        role: 'Managing Director & Chairman',
         image: '/ashish_bhalotia.png'
     },
     {
         id: 'rahul-kejriwal',
         name: 'Rahul Kumar Kejriwal',
-        role: 'Non-Executive Director',
+        role: 'Non-Executive Director & Professional',
         image: '/rahul_kejriwal.jpeg'
     },
     {
