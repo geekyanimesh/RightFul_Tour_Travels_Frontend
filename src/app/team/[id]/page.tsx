@@ -56,13 +56,15 @@ export default async function TeamMemberPage({ params }: { params: Promise<{ id:
 
                 <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
                     <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="h-[400px] md:h-auto">
+                        {/* IMAGE SECTION - Updated for perfect face fit */}
+                        <div className="p-8 aspect-square flex items-center justify-center">
                             <img
                                 src={member.image}
                                 alt={member.name}
-                                className="w-full h-full object-cover"
+                                className="max-w-full max-h-full object-contain"
                             />
                         </div>
+                        {/* TEXT SECTION */}
                         <div className="p-10 md:p-12 flex flex-col justify-center">
                             <h1 className="text-4xl font-black text-[#154374] mb-2">{member.name}</h1>
                             <p className="text-[#f27405] text-xl font-bold mb-8">{member.role}</p>

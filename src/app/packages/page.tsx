@@ -1,6 +1,6 @@
 // src/app/packages/page.tsx
 import React from 'react';
-import PackageCard from '@/components/PackageCard'; // Adjust path if necessary
+import PackageCard from '@/components/PackageCard';
 
 // Using the same mock data for now until we connect the Django backend
 const mockPackages = [
@@ -14,20 +14,21 @@ const mockPackages = [
 
 export default function PackagesPage() {
     return (
-        <main className="min-h-screen bg-gray-50 pt-24 pb-16">
-            {/* Page Header */}
-            <div className="bg-white border-b border-gray-200 mb-12 py-12">
-                <div className="max-w-7xl mx-auto px-4 text-center">
-                    <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Explore Our Packages</h1>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Find the perfect destination for your next adventure. From relaxing beach retreats to thrilling mountain expeditions.
+        <main className="min-h-screen bg-[#f4f7fa] pt-20 pb-16">
+            {/* MakeMyTrip Style Hero Header */}
+            <div className="bg-[#154374] mb-12 py-16 text-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop')] opacity-10 mix-blend-overlay object-cover w-full h-full"></div>
+                <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
+                    <h1 className="text-4xl md:text-5xl font-black mb-4 tracking-tight drop-shadow-md">Holiday Packages</h1>
+                    <p className="text-lg text-blue-100 max-w-2xl mx-auto font-medium">
+                        Handpicked destinations for your next adventure. Enjoy exclusive deals, comfortable stays, and unforgettable memories.
                     </p>
                 </div>
             </div>
 
             {/* Packages Grid */}
             <div className="max-w-7xl mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {mockPackages.map((pkg) => (
                         <PackageCard key={pkg.id} pkg={pkg} />
                     ))}

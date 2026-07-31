@@ -1,5 +1,6 @@
 // src/app/page.tsx
 import HeroSection from '../components/HeroSection';
+import ServiceBanner from '../components/ServiceBanner'; // Imported the new banner
 import Services from '../components/Services';
 import DestinationsGrid from '../components/DestinationsGrid';
 import PackageCard from '../components/PackageCard';
@@ -18,6 +19,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <HeroSection />
+
+      {/* Floating MakeMyTrip-Style Banner placed directly after Hero */}
+      <ServiceBanner />
 
       {/* Added the new Services Component */}
       <Services />

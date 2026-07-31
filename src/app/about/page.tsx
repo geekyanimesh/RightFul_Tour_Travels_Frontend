@@ -92,11 +92,12 @@ export default function AboutPage() {
                                 key={member.id}
                                 className="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all snap-center group"
                             >
-                                <div className="h-72 overflow-hidden relative">
+                                {/* IMAGE SECTION - Updated for perfect face fit */}
+                                <div className="h-72 overflow-hidden relative flex items-center justify-center p-4 bg-gray-50">
                                     <img
                                         src={member.image}
                                         alt={member.name}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                                         <span className="text-white flex items-center gap-2 font-medium">
