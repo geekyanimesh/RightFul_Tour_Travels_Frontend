@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 const TEAM_DATA: Record<string, any> = {
     'ashish-bhalotia': {
         name: 'Ashish Kumar Bhalotia',
-        role: 'MD & Chairman',
+        role: 'MD & Chairman (Executive Director)',
         image: '/ashish_bhalotia.png',
         bio: 'Born in 1989 and based in Kolkata, Ashish Kumar Bhalotia is a dynamic professional with a strong background in the service industry. His career is distinguished by dedication, innovation, and a commitment to delivering excellence across diverse sectors. Alongside his corporate journey, Ashish has been actively associated with several NGOs and private limited companies, contributing meaningfully to social initiatives and organizational development. His engagement in community service reflects his belief in responsible leadership and inclusive growth. As Executive Director of Rightful Tour and Travels Pvt. Ltd., Ashish provides strategic direction, strengthens governance, and drives the company’s vision forward.',
         email: 'ashish@rightfultourandtravels.com',
@@ -15,7 +15,7 @@ const TEAM_DATA: Record<string, any> = {
     },
     'rahul-kejriwal': {
         name: 'Rahul Kumar Kejriwal',
-        role: 'Professional',
+        role: 'Professional (Non-Executive Director)',
         image: '/rahul_kejriwal.jpeg',
         bio: 'Born in 1992, Rahul Kumar Kejriwal qualified as a Chartered Accountant in November 2018 and has since been practicing in Kolkata, India. With extensive expertise in accounting, taxation, and corporate compliance, he has established himself as a trusted professional delivering financial advisory services to businesses and individuals. In addition to his CA practice, Rahul serves as a Non-Executive Director at Rightful Tour and Travels Pvt. Ltd., where he contributes to the company’s strategic direction and governance. His role emphasizes oversight, financial discipline, and long-term vision, ensuring that the organization maintains transparency, accountability, and sustainable growth. Rahul’s dual expertise in finance and corporate governance positions him as a dynamic leader who combines professional integrity with entrepreneurial insight.',
         email: 'rahul@rightfultourandtravels.com',
