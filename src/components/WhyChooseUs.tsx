@@ -53,9 +53,12 @@ export default function WhyChooseUs() {
                             Enquire Now
                         </button>
 
-                        <div className="flex items-center justify-center gap-2 text-xl font-bold text-[#154374]">
-                            <PhoneCall className="w-6 h-6 text-[#308d46]" />
-                            <span>+91 98765 43210</span>
+                        <div className="flex items-center justify-center gap-3 text-xl font-bold text-[#154374]">
+                            <PhoneCall className="w-6 h-6 text-[#308d46] shrink-0" />
+                            <div className="flex flex-col text-left">
+                                <span>+91 98765 43210</span>
+                                <span>+91 70037 21581</span>
+                            </div>
                         </div>
 
                         {/* Floating Phone Icon Badge */}
